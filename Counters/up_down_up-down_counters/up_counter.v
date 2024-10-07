@@ -74,7 +74,7 @@ module up_down_counter(
     begin
         if(rst)
             out<=4'b0000;
-        else if(up_down)
+        else if(up_down==1)
             out<=out+1;
         else
         begin
