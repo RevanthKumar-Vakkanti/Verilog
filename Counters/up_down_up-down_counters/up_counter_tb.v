@@ -19,10 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-/*module up_counter_tb(
-
-    );
+//up counter
+/*module up_counter_tb();
     reg clk;
     reg [3:0]a;
     reg rst;
@@ -47,10 +45,8 @@ endmodule */
 
 
 
-
-/*module down_counter_tb(
-
-    );
+//down counter
+/*module down_counter_tb();
     reg clk;
     reg [3:0]a;
     reg rst;
@@ -75,12 +71,9 @@ endmodule */
 endmodule */
 
 
-
-module up_down_counter_tb(
-
-    );
+//up-down counter
+/*module up_down_counter_tb();
     reg clk;
- //   reg [3:0]a;
     reg rst,up_down;
     wire [3:0]out;
     
@@ -96,5 +89,53 @@ module up_down_counter_tb(
     #300 up_down =0;
      
     #350 $finish;
+    end
+endmodule*/
+
+
+
+//taking two output variables 
+/*module up_down_counter_tb();
+    reg clk;
+    reg rst,up_down;
+    wire [3:0]out;
+    wire [3:0]q;
+    
+    up_down_counter ud(clk,rst,up_down,out,q);
+    
+    initial clk=0;
+    always #10 clk = ~clk;
+    
+    initial begin
+    
+    rst = 1; up_down =1;
+    #200 rst =0;
+    #300 up_down =0;
+     
+    #500 $finish;
+    end
+endmodule*/
+
+
+
+//USING PARAMETER and two variables 
+module up_down_counter_tb #(parameter N=5)();
+    reg clk;
+    reg rst,up_down;
+    wire [N-1:0]out;
+    wire [N-1:0]q;
+    
+    up_down_counter #(N) ud(clk,rst,up_down,out,q);
+    
+    initial clk=0;
+    always #10 clk = ~clk;
+    
+    initial begin
+    
+    rst = 1; up_down =1;
+    #200 rst =0;
+    #300 up_down =0;
+     
+    #500 $finish;
     end
 endmodule
