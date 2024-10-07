@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
     
-    
+//up counter    
 /*module up_counter(
     input clk,
     input[3:0]a,
@@ -41,7 +41,7 @@
 endmodule */
 
 
-
+//down counter
 /*module down_counter(
     input clk,
     input[3:0]a,
@@ -62,8 +62,8 @@ endmodule */
 endmodule*/
 
 
-
-module up_down_counter(
+//up-down counter
+/*module up_down_counter(
     input clk,
   //  input[3:0]a,
     input rst,up_down,
@@ -81,4 +81,60 @@ module up_down_counter(
             out<=out-1;
         end
     end
+endmodule*/
+
+
+//taking two output variables 
+/*module up_down_counter(
+    input clk,
+    input rst,up_down,
+    output reg [3:0]out,
+    output reg [3:0]q
+    );
+    
+    always @(posedge clk)
+    begin
+        if(rst)
+        begin
+            out<=4'b0000;
+            q<=4'b0000;
+        end
+        else
+        begin
+             if(up_down==1)
+                  out<=out+1;  // up-counter
+        else
+        
+            q<=q-1;  //down-counter
+        end
+    end
+    
+endmodule*/
+
+
+//USING PARAMETER and two variables 
+module up_down_counter  #(parameter N=5)(
+    input clk,
+    input rst,up_down,
+    output reg [N-1:0]out,
+    output reg [N-1:0]q
+    );
+    integer i;
+    always @(posedge clk)
+    begin
+        if(rst)
+        begin
+            out<=4'b0000;
+            q<=4'b0000;
+        end
+        else
+        begin
+             if(up_down==1)
+                  out<=out+1;
+        else
+        
+            q<=q-1;
+        end
+    end
+    
 endmodule
