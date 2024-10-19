@@ -59,3 +59,22 @@ module johnson_counter(
     
     assign d = qb[3];
 endmodule 
+
+
+
+// d Flip-Flop
+module d_ff(
+    input d,clk,rst,
+    output reg q,
+    output qb
+    );
+    
+    always @(posedge clk)
+    begin
+        if(rst)
+            q<=0;
+        else
+            q<=d;
+    end
+    assign qb = ~q;
+endmodule
