@@ -29,15 +29,10 @@ wire carry;
 rip_carry rpa(a,b,cin,sum,carry);
 
 initial begin
-{a,b,cin} = 3'b000;
-
-#10 {a,b,cin} = 3'b001;
-#10 {a,b,cin} = 3'b010;
-#10 {a,b,cin} = 3'b011;
-#10 {a,b,cin} = 3'b100;
-#10 {a,b,cin} = 3'b101;
-#10 {a,b,cin} = 3'b110;
-#10 {a,b,cin} = 3'b111;
+a = 4'd0; b = 4'd0; cin=0;
+        #10 a=4'd3;b=4'd7; cin=0;
+        #10 a=4'd13;b=4'd14; cin=0;
+        #10 a=4'd7;b=4'd10; cin=0; 
 
 #10 $finish;
 end
