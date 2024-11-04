@@ -39,7 +39,7 @@ module ram_tb(
           w=1;din=4'b1010;addr=5'b00011;
      #100 w=1;din=4'b1001;addr=5'b00001;
      #100 w=0;addr=5'b00011;
-     #100 w=0;din=5'b00001;
+     #100 w=0;addr=5'b00001;
      #200 w=1;din=4'b1100;addr=5'b00010;
      
      #500 $finish;
