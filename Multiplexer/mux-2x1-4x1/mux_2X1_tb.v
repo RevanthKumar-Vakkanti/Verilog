@@ -47,7 +47,7 @@ module mux_4X1_tb();
     reg [0:1]s;
     wire y;
     
-    mux_2x1 mux(i,s,y);
+    mux_4x1 mux(i,s,y);
     
     initial begin
      
